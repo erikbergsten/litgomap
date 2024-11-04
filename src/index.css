@@ -1,0 +1,15 @@
+
+html, body, #map-box {
+  width: 100%;
+  height: 100%;
+}
+
+#portal {
+  border: 1px solid black;
+}
+
+.box {
+  background-color: #fcc;
+  color: red;
+  z-index: 100;
+}

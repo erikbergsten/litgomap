@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Lit + TS</title>
+    <link rel="stylesheet" href="./src/index.css" />
+    <script type="module" src="/src/index.ts"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/themes/light.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/shoelace-autoloader.js"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12/dist/ext/ws.js"></script>
+  </head>
+  <body>
+    <div hx-ext="ws" ws-connect="/api/markers">
+    <button hx-get='/api/div' hx-target='#portal'> click </button>
+    <div id='portal'>
+      <p> the secret portal </p>
+    </div>
+    <sl-card id='other'>
+      <p id='stuff'> the secret portal </p>
+    </sl-card>
+    <my-element>
+      <span class='box'> this is in te slot </span>
+    </my-element>
+    <div id='map-box'>
+      <mp-map>
+        <mp-marker lat='59.3' lng='18' draggable='true'>
+          <sl-icon
+            style='font-size: 2rem;'
+            name='x-circle'
+          ></sl-icon>
+        </mp-marker>
+        <mp-marker lat='59.8' lng='18.5' id='xmark'>
+          <sl-tooltip content=' your destination idiiot '>
+            <sl-icon
+              style='font-size: 2rem;'
+              name='x-square'
+            ></sl-icon>
+          </sl-tooltip>
+        </mp-marker>
+      </mp-map>
+    </div>
+    </div>
+  </body>
+</html>
